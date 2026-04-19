@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bronco95.exe — FOR SALE — 1992 Ford Bronco</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #008080;
+      font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
+      font-size: 12px;
+      padding: 18px 12px 50px;
+      min-height: 100vh;
+    }
+
+    /* ── WINDOW ──────────────────────────────── */
+    .win {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .titlebar {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #fff;
+      padding: 3px 4px 3px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .titlebar-left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .title-icon { font-size: 14px; }
+    .win-controls { display: flex; gap: 2px; }
+    .wbtn {
+      width: 16px; height: 14px;
+      background: #C0C0C0;
+      border-top:   1px solid #fff;
+      border-left:  1px solid #fff;
+      border-right: 1px solid #404040;
+      border-bottom:1px solid #404040;
+      font-size: 9px; font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      cursor: default; color: #000;
+      line-height: 1;
+    }
+
+    /* ── MENU BAR ────────────────────────────── */
+    .menubar {
+      background: #C0C0C0;
+      padding: 2px 4px;
+      border-bottom: 1px solid #808080;
+      display: flex; gap: 0;
+    }
+    .mi {
+      padding: 2px 8px;
+      cursor: default;
+      font-size: 12px;
+    }
+    .mi:hover { background: #000080; color: #fff; }
+    .mi u { text-decoration: underline; }
+
+    /* ── TOOLBAR ─────────────────────────────── */
+    .toolbar {
+      background: #C0C0C0;
+      padding: 4px 6px;
+      border-bottom: 1px solid #808080;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .tb-sep {
+      width: 2px; height: 20px;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #fff;
+      margin: 0 2px;
+    }
+    .tbtn {
+      padding: 3px 10px;
+      background: #C0C0C0;
+      border-top:   1px solid #fff;
+      border-left:  1px solid #fff;
+      border-right: 1px solid #404040;
+      border-bottom:1px solid #404040;
+      font-size: 11px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+    }
+    .tbtn:active {
+      border-top:   1px solid #404040;
+      border-left:  1px solid #404040;
+      border-right: 1px solid #fff;
+      border-bottom:1px solid #fff;
+    }
+
+    /* ── CONTENT ─────────────────────────────── */
+    .win-body { padding: 8px; }
+
+    /* ── PANELS ──────────────────────────────── */
+    .raised {
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      padding: 8px;
+      margin-bottom: 6px;
+    }
+    .sunken {
+      background: #fff;
+      border-top:   2px solid #808080;
+      border-left:  2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+      padding: 8px;
+    }
+    .groupbox {
+      border: 1px solid #808080;
+      padding: 12px 8px 8px;
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .grouplabel {
+      position: absolute;
+      top: -8px; left: 8px;
+      background: #C0C0C0;
+      padding: 0 4px;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    /* ── PRICE DISPLAY ───────────────────────── */
+    .price-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px;
+    }
+    .led-display {
+      background: #000;
+      color: #00FF41;
+      font-family: "Courier New", monospace;
+      font-size: 2.8rem;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-top:   2px solid #404040;
+      border-left:  2px solid #404040;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+      letter-spacing: 4px;
+      flex: 1;
+      text-align: center;
+    }
+    .price-obo {
+      font-size: 11px;
+      color: #000080;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── SPEC TABLE ──────────────────────────── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .spec-table td {
+      padding: 4px 7px;
+      border: 1px solid #808080;
+    }
+    .spec-table tr:nth-child(even) td { background: #d8d8d8; }
+    .spec-table .lbl {
+      font-weight: bold;
+      background: #000080;
+      color: #fff;
+      width: 38%;
+    }
+
+    /* ── DESCRIPTION ─────────────────────────── */
+    .desc-body {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #000;
+    }
+    .desc-section-title {
+      background: #000080;
+      color: #fff;
+      padding: 2px 6px;
+      font-weight: bold;
+      font-size: 11px;
+      margin: 10px 0 5px;
+      letter-spacing: 1px;
+    }
+    .desc-sub {
+      font-weight: bold;
+      color: #800000;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin: 6px 0 2px;
+    }
+    .known-issues {
+      background: #ffff99;
+      border: 1px solid #808000;
+      padding: 6px 8px;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+    .known-issues strong { color: #800000; }
+
+    /* ── GALLERY ─────────────────────────────── */
+    .gallery-label {
+      background: #000080;
+      color: #fff;
+      padding: 2px 8px;
+      font-weight: bold;
+      font-size: 11px;
+      margin: 8px 0 4px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .g-thumb {
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+      background: #808080;
+    }
+    .g-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .g-thumb:active {
+      border-top:   2px solid #404040;
+      border-left:  2px solid #404040;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+    }
+    .g-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,128,0.85);
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 2px 4px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .g-thumb:hover .g-label { opacity: 1; }
+
+    /* ── VIDEO ───────────────────────────────── */
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-top:   2px solid #808080;
+      border-left:  2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── CONTACT BUTTON ──────────────────────── */
+    .contact-area { text-align: center; padding: 10px 0; }
+    .big-btn {
+      display: inline-block;
+      padding: 6px 24px;
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      margin: 4px;
+    }
+    .big-btn:active {
+      border-top:   2px solid #404040;
+      border-left:  2px solid #404040;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+      padding: 7px 23px 5px 25px;
+    }
+    .contact-detail {
+      font-size: 12px;
+      margin-top: 8px;
+      color: #000080;
+      font-weight: bold;
+    }
+
+    /* ── QR ──────────────────────────────────── */
+    .qr-area {
+      text-align: center;
+      padding: 10px;
+    }
+    .qr-area img {
+      border: 6px solid #fff;
+      border-top:   2px solid #808080;
+      border-left:  2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+      padding: 6px;
+      background: #fff;
+    }
+    .qr-url {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      margin-top: 6px;
+      color: #000080;
+      font-weight: bold;
+    }
+
+    /* ── STATUS BAR ──────────────────────────── */
+    .statusbar {
+      background: #C0C0C0;
+      border-top: 1px solid #808080;
+      padding: 2px 4px;
+      display: flex;
+      gap: 2px;
+      font-size: 11px;
+    }
+    .sb-pane {
+      border-top:   1px solid #808080;
+      border-left:  1px solid #808080;
+      border-right: 1px solid #fff;
+      border-bottom:1px solid #fff;
+      padding: 1px 8px;
+    }
+
+    /* ── TASKBAR ─────────────────────────────── */
+    .taskbar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 30px;
+      background: #C0C0C0;
+      border-top: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      gap: 4px;
+      z-index: 1000;
+    }
+    .start-btn {
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      padding: 2px 8px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tb-window-btn {
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      min-width: 120px;
+      text-align: left;
+    }
+    .tb-clock {
+      margin-left: auto;
+      border-top:   1px solid #808080;
+      border-left:  1px solid #808080;
+      border-right: 1px solid #fff;
+      border-bottom:1px solid #fff;
+      padding: 2px 8px;
+      font-size: 11px;
+      min-width: 55px;
+      text-align: center;
+    }
+
+    /* ── LIGHTBOX ────────────────────────────── */
+    #lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #lightbox.open { display: flex; }
+    #lb-win {
+      background: #C0C0C0;
+      border-top:   2px solid #fff;
+      border-left:  2px solid #fff;
+      border-right: 2px solid #404040;
+      border-bottom:2px solid #404040;
+      max-width: 92vw;
+    }
+    #lb-titlebar {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #fff;
+      padding: 3px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    #lb-img {
+      display: block;
+      max-width: 88vw;
+      max-height: 72vh;
+      object-fit: contain;
+      border-top:   2px solid #808080;
+      border-left:  2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom:2px solid #fff;
+      margin: 8px;
+    }
+    #lb-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 8px 6px;
+    }
+    #lb-caption {
+      font-size: 11px;
+      font-weight: bold;
+      color: #000080;
+    }
+    #lb-counter { font-size: 11px; color: #808080; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ MAIN WINDOW ═══════════ -->
+<div class="win">
+
+  <!-- Title Bar -->
+  <div class="titlebar">
+    <div class="titlebar-left">
+      <span class="title-icon">🚙</span>
+      Bronco95.exe — 1992 Ford Bronco FOR SALE — The Beast
+    </div>
+    <div class="win-controls">
+      <div class="wbtn">_</div>
+      <div class="wbtn">□</div>
+      <div class="wbtn">✕</div>
+    </div>
+  </div>
+
+  <!-- Menu Bar -->
+  <div class="menubar">
+    <div class="mi"><u>F</u>ile</div>
+    <div class="mi"><u>E</u>dit</div>
+    <div class="mi"><u>V</u>iew</div>
+    <div class="mi">F<u>a</u>vorites</div>
+    <div class="mi"><u>H</u>elp</div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <a class="tbtn" href="mailto:jesse.lunsford@gmail.com">✉ Email Seller</a>
+    <div class="tb-sep"></div>
+    <span style="font-size:11px; font-weight:bold; color:#000080;">📞 512-415-5475</span>
+    <div class="tb-sep"></div>
+    <span style="font-size:11px;">📍 Austin, TX</span>
+    <div class="tb-sep"></div>
+    <span style="font-size:11px; color:#800000; font-weight:bold;">💲 $19,500 OBO</span>
+  </div>
+
+  <!-- Window Body -->
+  <div class="win-body">
+
+    <!-- PRICE -->
+    <div class="raised">
+      <div class="price-wrap">
+        <div style="flex:1">
+          <div class="led-display">$19,500</div>
+          <div class="price-obo">OR BEST OFFER — CASH / VENMO — AUSTIN TX</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:4px;">🏆</div>
+          <div style="font-size:11px; font-weight:bold; color:#000080;">CLEAN TITLE</div>
+          <div style="font-size:11px; font-weight:bold; color:#008000;">4WD WORKS</div>
+          <div style="font-size:11px; font-weight:bold; color:#800000;">AC BLOWS COLD</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="raised" style="padding:4px;">
+      <img src="images/exterior-front-quarter-driver-01.jpeg"
+           style="width:100%; display:block; cursor:pointer;
+                  border-top:2px solid #808080; border-left:2px solid #808080;
+                  border-right:2px solid #fff; border-bottom:2px solid #fff;"
+           onclick="openLightbox(0)"
+           alt="1992 Ford Bronco — The Beast">
+      <div style="text-align:center; font-size:10px; color:#808080; margin-top:3px;">
+        Double-click any photo to open viewer
+      </div>
+    </div>
+
+    <!-- SPECS -->
+    <div class="groupbox">
+      <span class="grouplabel">Vehicle Properties</span>
+      <table class="spec-table">
+        <tr><td class="lbl">Year</td><td>1992</td>
+            <td class="lbl">Make / Model</td><td>Ford Bronco</td></tr>
+        <tr><td class="lbl">Trim</td><td>XLT</td>
+            <td class="lbl">Engine</td><td>5.0L 302 V8</td></tr>
+        <tr><td class="lbl">Transmission</td><td>Automatic</td>
+            <td class="lbl">Drivetrain</td><td>4WD</td></tr>
+        <tr><td class="lbl">Mileage</td><td>261,000 miles</td>
+            <td class="lbl">Exterior</td><td>Oxford White / Dark Blue Two-Tone</td></tr>
+        <tr><td class="lbl">Interior</td><td>Blue/Grey Cloth</td>
+            <td class="lbl">Title</td><td>Clean / Lien-free</td></tr>
+        <tr><td class="lbl">Location</td><td>Austin, TX</td>
+            <td class="lbl">VIN</td><td>1FMEU15NONLA27169</td></tr>
+      </table>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="groupbox">
+      <span class="grouplabel">Seller's Description</span>
+      <div class="sunken" style="max-height:420px; overflow-y:auto;">
+        <div class="desc-body">
+
+          <p>This is a 1992 Ford Bronco XLT — Oxford White over Dark Blue Two-Tone, original blue tweed interior — that I've driven as my daily in Austin for eight years. Bought in early 2018 at roughly 226,000 miles; now at approximately 261,000. I'm not a car guy. I kept it maintained. <strong>Over $24,000 in documented service receipts since purchase — all available for the buyer.</strong></p>
+
+          <div class="desc-section-title">WHAT IT HAD WHEN I BOUGHT IT (2018)</div>
+          <div class="desc-sub">Engine</div>
+          New timing chain. Rebuilt fuel injectors. All-new engine sensors.
+          <div class="desc-sub">Cooling &amp; Climate</div>
+          New radiator and water pump. AC system rebuilt — ran ice cold at purchase.
+          <div class="desc-sub">Suspension &amp; Steering</div>
+          Six new shocks including the dual front shock setup. Rebuilt steering column. New OEM Ford steering wheel.
+          <div class="desc-sub">Body &amp; Paint</div>
+          Repainted in original Oxford White and Dark Blue prior to sale.
+          <div class="desc-sub">Interior</div>
+          Original blue tweed — crack-free dash, no tears or significant wear on the seat fabric.
+
+          <div class="desc-section-title">MECHANICAL WORK SINCE 2018</div>
+          <div class="desc-sub">Engine &amp; Ignition</div>
+          2018 — Starter solenoid replaced, new starter, wiring repaired.<br>
+          2019 — Starter motor replaced; coolant temperature sensor replaced (hard starts, running rough).<br>
+          2020 — Full tune-up: distributor, ignition coil assembly, rotor, spark plugs.<br>
+          2024 — Water pump, thermostat, radiator hoses; fuel injection service.<br>
+          <strong>2025 — Cylinder heads replaced with machine shop work. Timing cover assembly replaced. All 8 spark plugs and wires replaced. Major top-end overhaul.</strong>
+
+          <div class="desc-sub">Brakes &amp; Suspension</div>
+          2019 — ABS hydraulic unit replaced; new brake hoses.<br>
+          2022 — Front disc pads &amp; rotors; rear brake shoes &amp; hardware; full brake fluid flush.<br>
+          2024 — All four suspension control arms replaced (upper and lower, both sides); front brakes again.
+
+          <div class="desc-sub">Cooling &amp; Climate</div>
+          2020 — Complete new AC system: compressor, condenser, both hoses; R12 → R134A conversion.<br>
+          2024 — Coolant reservoir replaced; cooling system flush.<br>
+          2025 — Additional cooling work concurrent with cylinder head job.
+
+          <div class="desc-sub">Drivetrain &amp; Other</div>
+          2024 — Transmission service; transfer case fluid exchange; differential service.<br>
+          2022 — Serpentine belt replaced. 2019 — New battery. 2018 — Running boards installed.
+
+          <div class="desc-section-title">CONDITION</div>
+          <p>Drives great. 4WD is excellent — got me out of the 2021 Austin snowpocalypse and has worked on multiple job sites. AC blows cold. Interior is in great shape for a 33-year-old truck.</p>
+
+          <div class="known-issues">
+            <strong>⚠ Known Issues:</strong> Some exterior trim pieces missing. Paint has cosmetic wear — scratches and dings consistent with eight years as a daily driver, nothing structural. Tailgate latch not functioning. Hub covers on hand but not installed.
+          </div>
+
+          <div class="desc-section-title">WHAT COMES WITH IT</div>
+          Running boards, aftermarket sound system, phone/dash mount, hub covers, XLT 2" tow package, underbody rock guards, 31" tires, and the full service file.
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="groupbox">
+      <span class="grouplabel">Photo Viewer</span>
+
+      <div class="gallery-label">📁 Exterior</div>
+      <div class="gallery-grid">
+        <div class="g-thumb" onclick="openLightbox(0)"><img src="images/exterior-front-quarter-driver-01.jpeg" loading="lazy" alt=""><span class="g-label">Front Quarter — Driver</span></div>
+        <div class="g-thumb" onclick="openLightbox(1)"><img src="images/exterior-front-01.jpeg" loading="lazy" alt=""><span class="g-label">Front Straight On</span></div>
+        <div class="g-thumb" onclick="openLightbox(2)"><img src="images/exterior-front-02.jpeg" loading="lazy" alt=""><span class="g-label">Front — Alt Location</span></div>
+        <div class="g-thumb" onclick="openLightbox(3)"><img src="images/exterior-front-quarter-driver-02.jpeg" loading="lazy" alt=""><span class="g-label">Front Quarter — Driver #2</span></div>
+        <div class="g-thumb" onclick="openLightbox(4)"><img src="images/exterior-front-quarter-driver-03.jpeg" loading="lazy" alt=""><span class="g-label">Front Quarter — Driver #3</span></div>
+        <div class="g-thumb" onclick="openLightbox(5)"><img src="images/exterior-front-quarter-passenger-01.jpeg" loading="lazy" alt=""><span class="g-label">Front Quarter — Passenger</span></div>
+        <div class="g-thumb" onclick="openLightbox(6)"><img src="images/exterior-front-wide-angle.jpeg" loading="lazy" alt=""><span class="g-label">Front Wide Angle</span></div>
+        <div class="g-thumb" onclick="openLightbox(7)"><img src="images/exterior-side-driver-01.jpeg" loading="lazy" alt=""><span class="g-label">Driver Side Profile</span></div>
+        <div class="g-thumb" onclick="openLightbox(8)"><img src="images/exterior-side-driver-02.jpeg" loading="lazy" alt=""><span class="g-label">Driver Side — Alt</span></div>
+        <div class="g-thumb" onclick="openLightbox(9)"><img src="images/exterior-rear-01.jpeg" loading="lazy" alt=""><span class="g-label">Rear — Bronco Spare Tire</span></div>
+        <div class="g-thumb" onclick="openLightbox(10)"><img src="images/exterior-rear-quarter-driver-01.jpeg" loading="lazy" alt=""><span class="g-label">Rear Quarter — Driver</span></div>
+        <div class="g-thumb" onclick="openLightbox(11)"><img src="images/exterior-rear-quarter-passenger-01.jpeg" loading="lazy" alt=""><span class="g-label">Rear Quarter — Passenger</span></div>
+        <div class="g-thumb" onclick="openLightbox(12)"><img src="images/exterior-wheel-bronco-badge.jpeg" loading="lazy" alt=""><span class="g-label">Wheel + Bronco Badge</span></div>
+        <div class="g-thumb" onclick="openLightbox(13)"><img src="images/exterior-hood-open-front.jpeg" loading="lazy" alt=""><span class="g-label">Hood Open — Front</span></div>
+      </div>
+
+      <div class="gallery-label">📁 Interior</div>
+      <div class="gallery-grid">
+        <div class="g-thumb" onclick="openLightbox(14)"><img src="images/interior-front-seats-driver-view.jpeg" loading="lazy" alt=""><span class="g-label">Front Seats — Driver View</span></div>
+        <div class="g-thumb" onclick="openLightbox(15)"><img src="images/interior-front-seats-passenger-view.jpeg" loading="lazy" alt=""><span class="g-label">Front Seats — Passenger View</span></div>
+        <div class="g-thumb" onclick="openLightbox(16)"><img src="images/interior-dashboard-steering-wheel.jpeg" loading="lazy" alt=""><span class="g-label">Dashboard + Steering Wheel</span></div>
+        <div class="g-thumb" onclick="openLightbox(17)"><img src="images/interior-door-panel-driver.jpeg" loading="lazy" alt=""><span class="g-label">Driver Door Panel</span></div>
+        <div class="g-thumb" onclick="openLightbox(18)"><img src="images/interior-door-panel-passenger.jpeg" loading="lazy" alt=""><span class="g-label">Passenger Door Panel</span></div>
+        <div class="g-thumb" onclick="openLightbox(19)"><img src="images/interior-rear-seat.jpeg" loading="lazy" alt=""><span class="g-label">Rear Bench Seat</span></div>
+        <div class="g-thumb" onclick="openLightbox(20)"><img src="images/interior-cargo-area.jpeg" loading="lazy" alt=""><span class="g-label">Cargo Area</span></div>
+        <div class="g-thumb" onclick="openLightbox(21)"><img src="images/interior-overhead-view.jpeg" loading="lazy" alt=""><span class="g-label">Interior Overhead</span></div>
+      </div>
+
+      <div class="gallery-label">📁 Engine Bay</div>
+      <div class="gallery-grid">
+        <div class="g-thumb" onclick="openLightbox(22)"><img src="images/engine-bay-01.jpeg" loading="lazy" alt=""><span class="g-label">Engine Bay #1</span></div>
+        <div class="g-thumb" onclick="openLightbox(23)"><img src="images/engine-bay-02.jpeg" loading="lazy" alt=""><span class="g-label">Engine Bay #2</span></div>
+        <div class="g-thumb" onclick="openLightbox(24)"><img src="images/engine-bay-03.jpeg" loading="lazy" alt=""><span class="g-label">Engine Bay #3</span></div>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="groupbox">
+      <span class="grouplabel">▶ Media Player — bronco_video.mov</span>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/DMjwwC0ZR6Q"
+                title="1992 Ford Bronco — The Beast"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="groupbox">
+      <span class="grouplabel">Contact Seller</span>
+      <div class="contact-area">
+        <p style="margin-bottom:10px; font-size:12px;">Serious buyers only. No trades. Cash or Venmo. Austin TX.</p>
+        <a class="big-btn" href="mailto:jesse.lunsford@gmail.com">✉ Send Email</a>
+        <a class="big-btn" href="tel:5124155475">📞 Call / Text</a>
+        <div class="contact-detail">
+          jesse.lunsford@gmail.com &nbsp;·&nbsp; 512-415-5475 &nbsp;·&nbsp; Austin, TX
+        </div>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="groupbox">
+      <span class="grouplabel">📱 Scan to View Listing</span>
+      <div class="qr-area">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fjesse.ventures%2Fthebeast&margin=10"
+             width="200" height="200" alt="QR Code">
+        <div class="qr-url">jesse.ventures/thebeast</div>
+      </div>
+    </div>
+
+  </div><!-- /win-body -->
+
+  <!-- Status Bar -->
+  <div class="statusbar">
+    <div class="sb-pane" style="flex:2;">1992 Ford Bronco XLT — $19,500 OBO</div>
+    <div class="sb-pane" style="flex:1;">261,000 miles</div>
+    <div class="sb-pane" style="flex:1;">Austin, TX</div>
+    <div class="sb-pane" style="flex:1;">25 photos</div>
+  </div>
+
+</div><!-- /win -->
+
+<!-- ═══════════ TASKBAR ═══════════ -->
+<div class="taskbar">
+  <div class="start-btn">🪟 Start</div>
+  <div class="tb-window-btn">🚙 Bronco95.exe</div>
+  <div class="tb-clock" id="tb-clock">12:00</div>
+</div>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div id="lightbox">
+  <div id="lb-win">
+    <div id="lb-titlebar">
+      <span id="lb-title-text">Photo Viewer</span>
+      <div class="win-controls">
+        <div class="wbtn" onclick="closeLightbox()">✕</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:0; padding:4px; align-items:center; background:#C0C0C0; border-bottom:1px solid #808080;">
+      <div class="wbtn" style="width:auto; padding:2px 10px; font-size:11px;" onclick="shiftLightbox(-1)">◀ Back</div>
+      <div style="flex:1; text-align:center; font-size:11px;" id="lb-counter"></div>
+      <div class="wbtn" style="width:auto; padding:2px 10px; font-size:11px;" onclick="shiftLightbox(1)">Next ▶</div>
+    </div>
+    <img id="lb-img" src="" alt="">
+    <div id="lb-nav-bar">
+      <div id="lb-caption"></div>
+      <div id="lb-counter-2"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    document.getElementById('tb-clock').textContent =
+      now.getHours().toString().padStart(2,'0') + ':' +
+      now.getMinutes().toString().padStart(2,'0');
+  }
+  updateClock();
+  setInterval(updateClock, 10000);
+
+  // Lightbox
+  const IMAGES = [
+    { src: 'images/exterior-front-quarter-driver-01.jpeg', cap: 'Front Quarter — Driver Side' },
+    { src: 'images/exterior-front-01.jpeg',                cap: 'Front Straight On' },
+    { src: 'images/exterior-front-02.jpeg',                cap: 'Front — Alt Location' },
+    { src: 'images/exterior-front-quarter-driver-02.jpeg', cap: 'Front Quarter — Driver #2' },
+    { src: 'images/exterior-front-quarter-driver-03.jpeg', cap: 'Front Quarter — Driver #3' },
+    { src: 'images/exterior-front-quarter-passenger-01.jpeg', cap: 'Front Quarter — Passenger Side' },
+    { src: 'images/exterior-front-wide-angle.jpeg',        cap: 'Front Wide Angle' },
+    { src: 'images/exterior-side-driver-01.jpeg',          cap: 'Driver Side Profile' },
+    { src: 'images/exterior-side-driver-02.jpeg',          cap: 'Driver Side Profile — Alt' },
+    { src: 'images/exterior-rear-01.jpeg',                 cap: 'Rear — Bronco Spare Tire' },
+    { src: 'images/exterior-rear-quarter-driver-01.jpeg',  cap: 'Rear Quarter — Driver Side' },
+    { src: 'images/exterior-rear-quarter-passenger-01.jpeg', cap: 'Rear Quarter — Passenger Side' },
+    { src: 'images/exterior-wheel-bronco-badge.jpeg',      cap: 'Wheel + Bronco Badge' },
+    { src: 'images/exterior-hood-open-front.jpeg',         cap: 'Hood Open — Front' },
+    { src: 'images/interior-front-seats-driver-view.jpeg', cap: 'Front Seats — Driver View' },
+    { src: 'images/interior-front-seats-passenger-view.jpeg', cap: 'Front Seats — Passenger View' },
+    { src: 'images/interior-dashboard-steering-wheel.jpeg', cap: 'Dashboard + Steering Wheel' },
+    { src: 'images/interior-door-panel-driver.jpeg',       cap: 'Driver Door Panel' },
+    { src: 'images/interior-door-panel-passenger.jpeg',    cap: 'Passenger Door Panel' },
+    { src: 'images/interior-rear-seat.jpeg',               cap: 'Rear Bench Seat' },
+    { src: 'images/interior-cargo-area.jpeg',              cap: 'Cargo Area' },
+    { src: 'images/interior-overhead-view.jpeg',           cap: 'Interior Overhead View' },
+    { src: 'images/engine-bay-01.jpeg',                    cap: 'Engine Bay #1' },
+    { src: 'images/engine-bay-02.jpeg',                    cap: 'Engine Bay #2' },
+    { src: 'images/engine-bay-03.jpeg',                    cap: 'Engine Bay #3' },
+  ];
+
+  let idx = 0;
+
+  function openLightbox(i) {
+    idx = i; updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function shiftLightbox(d) {
+    idx = (idx + d + IMAGES.length) % IMAGES.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    const item = IMAGES[idx];
+    document.getElementById('lb-img').src = item.src;
+    document.getElementById('lb-caption').textContent = item.cap;
+    const c = (idx+1) + ' of ' + IMAGES.length;
+    document.getElementById('lb-counter').textContent = c;
+    document.getElementById('lb-title-text').textContent = 'Photo Viewer — ' + item.cap;
+  }
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') shiftLightbox(1);
+    if (e.key === 'ArrowLeft')  shiftLightbox(-1);
+    if (e.key === 'Escape')     closeLightbox();
+  });
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+</script>
+
+</body>
+</html>

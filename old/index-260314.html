@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesse.Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ════════════════════════════════════════════
+       jesse.ventures — High-Definition Terminal
+       Your layout + the HD retro treatment
+    ════════════════════════════════════════════ */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background-color: #0a0a0a;
+      color: #FFB000;
+      margin: 0;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      min-height: 100vh;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Scanline Overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.12) 2px,
+        rgba(0, 0, 0, 0.12) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Menu / Main Layout ── */
+    .menu {
+      white-space: pre;
+      font-size: 18px;
+    }
+
+    /* ── Border Lines ── */
+    .border-line {
+      color: #00FF41;
+      text-shadow:
+        0 0 4px rgba(0, 255, 65, 0.4),
+        0 0 12px rgba(0, 255, 65, 0.15);
+      user-select: none;
+    }
+
+    .divider-line {
+      color: #00FF41;
+      opacity: 0.35;
+      text-shadow: 0 0 6px rgba(0, 255, 65, 0.1);
+      user-select: none;
+    }
+
+    /* ── Header Title ── */
+    .site-title {
+      color: #FFB000;
+      text-decoration: none;
+      cursor: default;
+      font-weight: 700;
+      font-size: 18px;
+      text-shadow:
+        0 0 7px rgba(255, 176, 0, 0.6),
+        0 0 20px rgba(255, 176, 0, 0.25),
+        0 0 40px rgba(255, 176, 0, 0.08);
+    }
+
+    /* ── Navigation Links ── */
+    .menu a {
+      color: #FFB000;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      transition: all 0.25s ease;
+      text-shadow:
+        0 0 5px rgba(255, 176, 0, 0.35),
+        0 0 14px rgba(255, 176, 0, 0.12);
+    }
+
+    .menu a .bracket {
+      display: inline-block;
+      opacity: 0.5;
+      transition: all 0.25s ease;
+    }
+
+    .menu a:hover {
+      color: #FFD700;
+      text-shadow:
+        0 0 8px rgba(255, 215, 0, 0.7),
+        0 0 24px rgba(255, 215, 0, 0.3),
+        0 0 48px rgba(255, 215, 0, 0.1);
+    }
+
+    .menu a:hover .bracket {
+      opacity: 1;
+      color: #FFD700;
+    }
+
+    .menu a:hover .bracket-left {
+      transform: translateX(-3px);
+    }
+
+    .menu a:hover .bracket-right {
+      transform: translateX(3px);
+    }
+
+    .menu a.active {
+      color: #00FF41;
+      text-shadow:
+        0 0 7px rgba(0, 255, 65, 0.5),
+        0 0 20px rgba(0, 255, 65, 0.2);
+    }
+
+    .menu a.active .bracket {
+      opacity: 0.5;
+    }
+
+    /* ── Content Sections ── */
+    .section {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    h2, p {
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Section Content Text ── */
+    .section h2 {
+      color: #FFB000;
+      text-shadow:
+        0 0 5px rgba(255, 176, 0, 0.4),
+        0 0 14px rgba(255, 176, 0, 0.15);
+    }
+
+    .section p {
+      text-shadow: 0 0 4px rgba(255, 176, 0, 0.2);
+    }
+
+    /* ── Section Divider Lines (amber) ── */
+    .section-divider {
+      color: #FFB000;
+      display: block;
+      opacity: 0.35;
+      text-shadow: 0 0 4px rgba(255, 176, 0, 0.15);
+      user-select: none;
+    }
+
+    /* ── Contact Info ── */
+    .contact-info {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .contact-info a {
+      color: #FFB000;
+      text-decoration: none;
+      text-shadow: 0 0 5px rgba(255, 176, 0, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .contact-info a:hover {
+      color: #FFD700;
+      text-shadow:
+        0 0 6px rgba(255, 215, 0, 0.6),
+        0 0 18px rgba(255, 215, 0, 0.25);
+    }
+
+    /* ── Resource Links ── */
+    .resource-link {
+      color: #FFB000;
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      text-shadow: 0 0 5px rgba(255, 176, 0, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .resource-link:hover {
+      color: #FFD700;
+      text-shadow:
+        0 0 6px rgba(255, 215, 0, 0.6),
+        0 0 18px rgba(255, 215, 0, 0.25);
+    }
+
+    /* ── Prompt ── */
+    .prompt {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #1a6b2a;
+      text-shadow: 0 0 6px rgba(0, 255, 65, 0.1);
+    }
+
+    .prompt__cursor {
+      display: inline-block;
+      color: #00FF41;
+      animation: blink 1.1s step-end infinite;
+      text-shadow: 0 0 6px rgba(0, 255, 65, 0.5);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .menu {
+        white-space: normal;
+        padding: 0 1rem;
+      }
+      .menu a {
+        display: inline-block;
+        margin: 0.2rem 0.1rem;
+      }
+      .border-line, .divider-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <span class="border-line">==============================</span>
+    <span class="site-title">WELCOME TO JESSE.VENTURES</span>
+    <span class="border-line">==============================</span>
+
+    <a href="/thebeast/" class="nav-link"><span class="bracket bracket-left">  [</span>THE BEAST<span class="bracket bracket-right">]  </span></a><!--
+    --><a href="/contact/" class="nav-link"><span class="bracket bracket-left">[</span>CONTACT<span class="bracket bracket-right">]  </span></a>
+
+    <span class="divider-line">------------------------------</span>
+  </div>
+
+  <div id="home" class="section active">
+    <span class="section-divider">------------------------------</span>
+    <h2>Select a link to continue ...</h2>
+    <span class="section-divider">------------------------------</span>
+  </div>
+
+  <script>
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function(link) {
+      link.addEventListener('mouseenter', function() {
+        navLinks.forEach(function(lnk) {
+          lnk.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+      link.addEventListener('mouseleave', function() {
+        this.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

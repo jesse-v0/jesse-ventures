@@ -1,0 +1,197 @@
+<?php
+$meta = json_decode(file_get_contents(__DIR__ . '/meta.json'), true);
+$webDir = __DIR__ . '/web/';
+$photos = [];
+if (is_dir($webDir)) {
+    foreach (scandir($webDir) as $f) {
+        if (preg_match('/^\d{3}\.jpg$/i', $f)) {
+            $photos[] = $f;
+        }
+    }
+    sort($photos);
+}
+$total = count($photos);
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= htmlspecialchars($meta['title']) ?> — Photos — Jesse.Ventures</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #FFB000;
+    --amber-dim: #CC8800;
+    --amber-glow: rgba(255,176,0,0.15);
+    --bg: #0a0a00;
+    --scan: rgba(0,0,0,0.25);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--amber);
+    font-family: 'JetBrains Mono', 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--scan) 2px, var(--scan) 4px);
+    pointer-events: none; z-index: 1000;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  header { border-bottom: 1px solid var(--amber-dim); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+
+  .breadcrumb { font-size: 0.75rem; color: var(--amber-dim); margin-bottom: 1rem; }
+  .breadcrumb a { color: var(--amber-dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--amber); }
+
+  h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+       text-shadow: 0 0 20px var(--amber); margin-bottom: 0.3rem; }
+
+  .subtitle { font-size: 0.85rem; color: var(--amber-dim); letter-spacing: 0.1em; }
+  .meta-line { font-size: 0.75rem; color: var(--amber-dim); margin-top: 0.5rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 1.5rem;
+  }
+
+  .thumb {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .thumb:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 12px var(--amber-glow);
+  }
+  .thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(10%) brightness(0.92);
+    transition: filter 0.2s;
+  }
+  .thumb:hover img { filter: sepia(0%) brightness(1); }
+
+  /* Lightbox */
+  #lb {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.94); z-index: 2000;
+    align-items: center; justify-content: center;
+  }
+  #lb.open { display: flex; }
+  #lb-img { max-width: 90vw; max-height: 88vh; object-fit: contain;
+             box-shadow: 0 0 40px rgba(255,176,0,0.2); }
+  #lb-close {
+    position: absolute; top: 1.2rem; right: 1.5rem;
+    color: var(--amber); font-size: 1.5rem; cursor: pointer;
+    background: none; border: none; font-family: inherit;
+  }
+  #lb-close:hover { text-shadow: 0 0 10px var(--amber); }
+  #lb-prev, #lb-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: var(--amber); font-size: 2rem; cursor: pointer;
+    background: none; border: none; font-family: inherit;
+    padding: 1rem; opacity: 0.6; transition: opacity 0.2s;
+  }
+  #lb-prev:hover, #lb-next:hover { opacity: 1; }
+  #lb-prev { left: 1rem; }
+  #lb-next { right: 1rem; }
+  #lb-counter {
+    position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    color: var(--amber-dim); font-size: 0.75rem; letter-spacing: 0.1em;
+  }
+
+  footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--amber-dim);
+           font-size: 0.7rem; color: var(--amber-dim); letter-spacing: 0.08em; }
+  footer a { color: var(--amber-dim); text-decoration: none; }
+  footer a:hover { color: var(--amber); }
+
+  @media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .grid { grid-template-columns: repeat(1, 1fr); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="breadcrumb">
+      <a href="/">JESSE.VENTURES</a> / <a href="/photos/">PHOTOS</a> / <?= strtoupper(htmlspecialchars($meta['title'])) ?>
+    </div>
+    <h1><?= htmlspecialchars($meta['title']) ?></h1>
+    <div class="subtitle"><?= htmlspecialchars($meta['subtitle']) ?></div>
+    <div class="meta-line"><?= htmlspecialchars($meta['date']) ?> — <?= htmlspecialchars($meta['location']) ?> — <?= $total ?> photographs</div>
+  </header>
+
+  <div class="grid">
+    <?php foreach ($photos as $i => $f): ?>
+    <div class="thumb" onclick="openLb(<?= $i ?>)">
+      <img src="web/thumbs/<?= $f ?>" alt="<?= htmlspecialchars($meta['title']) ?> photograph <?= pathinfo($f, PATHINFO_FILENAME) ?>" loading="lazy">
+    </div>
+    <?php endforeach; ?>
+  </div>
+
+  <footer>
+    <a href="/photos/">[← BACK TO PHOTO JOURNALS]</a>
+  </footer>
+</div>
+
+<!-- Lightbox -->
+<div id="lb">
+  <button id="lb-close" onclick="closeLb()">✕</button>
+  <button id="lb-prev" onclick="stepLb(-1)">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next" onclick="stepLb(1)">&#8594;</button>
+  <div id="lb-counter"></div>
+</div>
+
+<script>
+const photos = <?= json_encode(array_values($photos)) ?>;
+let cur = 0;
+
+function openLb(i) {
+  cur = i;
+  document.getElementById('lb').classList.add('open');
+  loadLb();
+  document.addEventListener('keydown', lbKey);
+}
+
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+  document.removeEventListener('keydown', lbKey);
+}
+
+function loadLb() {
+  document.getElementById('lb-img').src = 'web/' + photos[cur];
+  document.getElementById('lb-counter').textContent = (cur + 1) + ' / ' + photos.length;
+}
+
+function stepLb(dir) {
+  cur = (cur + dir + photos.length) % photos.length;
+  loadLb();
+}
+
+function lbKey(e) {
+  if (e.key === 'ArrowRight') stepLb(1);
+  else if (e.key === 'ArrowLeft') stepLb(-1);
+  else if (e.key === 'Escape') closeLb();
+}
+
+document.getElementById('lb').addEventListener('click', function(e) {
+  if (e.target === this) closeLb();
+});
+</script>
+</body>
+</html>

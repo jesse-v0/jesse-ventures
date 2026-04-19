@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesse's 1992 Ford Bronco Page - THE BEAST - For Sale!!!</title>
+  <style>
+
+    /* ════════════════════════════════════
+       BODY — tiled purple background
+    ════════════════════════════════════ */
+    body {
+      background-color: #660099;
+      background-image:
+        repeating-linear-gradient(45deg,  rgba(255,255,0,0.08) 0, rgba(255,255,0,0.08) 2px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, rgba(255,255,0,0.08) 0, rgba(255,255,0,0.08) 2px, transparent 0, transparent 50%);
+      background-size: 24px 24px;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      color: #000;
+      margin: 0;
+      padding: 12px;
+    }
+
+    /* ════════════════════════════════════
+       WHITE PAGE CONTAINER
+    ════════════════════════════════════ */
+    .page-center {
+      max-width: 780px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 18px 20px;
+      border: 5px ridge #9900CC;
+    }
+
+    /* ════════════════════════════════════
+       MARQUEE
+    ════════════════════════════════════ */
+    .marquee-bar {
+      background: #000066;
+      color: #FFD700;
+      padding: 5px 0;
+      margin-bottom: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-block;
+      animation: scroll-left 22s linear infinite;
+      font-size: 0.88em;
+      letter-spacing: 2px;
+    }
+    @keyframes scroll-left {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+
+    /* ════════════════════════════════════
+       HEADER
+    ════════════════════════════════════ */
+    .page-title {
+      text-align: center;
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 2.8em;
+      color: #9900CC;
+      text-shadow: 3px 3px 0 #FFD700, 5px 5px 0 #FF6600;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .page-subtitle {
+      text-align: center;
+      font-family: Impact, sans-serif;
+      font-size: 1.25em;
+      color: #FF0000;
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+
+    /* ════════════════════════════════════
+       BADGES
+    ════════════════════════════════════ */
+    .badge-new {
+      display: inline-block;
+      background: #FF0000;
+      color: #FFD700;
+      font-family: Impact, sans-serif;
+      font-size: 0.72em;
+      padding: 2px 7px;
+      animation: badge-flash 0.55s step-end infinite;
+      vertical-align: middle;
+      margin: 0 2px;
+    }
+    @keyframes badge-flash {
+      0%,100% { background: #FF0000; color: #FFD700; }
+      50%      { background: #FFD700; color: #FF0000; }
+    }
+    .badge-hot {
+      display: inline-block;
+      background: #FF6600;
+      color: #fff;
+      font-family: Impact, sans-serif;
+      font-size: 0.72em;
+      padding: 2px 7px;
+      animation: badge-hot 0.7s step-end infinite;
+      vertical-align: middle;
+      margin: 0 2px;
+    }
+    @keyframes badge-hot {
+      0%,100% { background: #FF6600; color: #fff; }
+      50%      { background: #fff; color: #FF6600; }
+    }
+
+    /* ════════════════════════════════════
+       BLINK
+    ════════════════════════════════════ */
+    .blink { animation: blinker 0.85s step-end infinite; }
+    @keyframes blinker { 50% { opacity: 0; } }
+
+    /* ════════════════════════════════════
+       HORIZONTAL RULES
+    ════════════════════════════════════ */
+    hr.rainbow {
+      border: none;
+      height: 5px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+      margin: 14px 0;
+    }
+    hr.dots {
+      border: none;
+      border-top: 3px dotted #9900CC;
+      margin: 12px 0;
+    }
+    hr.navy {
+      border: none;
+      height: 4px;
+      background: #000099;
+      margin: 12px 0;
+    }
+    hr.thin {
+      border: none;
+      border-top: 1px solid #9900CC;
+      margin: 10px 0;
+    }
+
+    /* ════════════════════════════════════
+       SECTION HEADERS
+    ════════════════════════════════════ */
+    .section-title {
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 1.55em;
+      text-align: center;
+      padding: 7px 10px;
+      letter-spacing: 2px;
+      margin: 14px 0 10px;
+    }
+    .subsection-bar {
+      font-family: Impact, sans-serif;
+      font-size: 1em;
+      text-align: center;
+      background: #CCCCFF;
+      color: #000099;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin: 10px 0 6px;
+    }
+
+    /* ════════════════════════════════════
+       TABLE OF CONTENTS
+    ════════════════════════════════════ */
+    .toc {
+      background: #EEEEFF;
+      border: 2px ridge #0000CC;
+      padding: 10px 20px;
+      font-size: 0.9em;
+      margin: 12px 0;
+    }
+    .toc a          { color: #0000CC; }
+    .toc a:visited  { color: #660099; }
+    .toc-title {
+      font-family: Impact, sans-serif;
+      color: #660099;
+      font-size: 1.1em;
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: 2px;
+    }
+
+    /* ════════════════════════════════════
+       PRICE BOX
+    ════════════════════════════════════ */
+    .price-box {
+      text-align: center;
+      background: #FFFF00;
+      border: 4px solid #FF0000;
+      padding: 14px;
+      margin: 12px 0;
+    }
+    .price-label {
+      font-family: Impact, sans-serif;
+      font-size: 1.05em;
+      color: #FF0000;
+      letter-spacing: 3px;
+    }
+    .price-amount {
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 3.8em;
+      color: #000099;
+      text-shadow: 2px 2px 0 #FF0000;
+      line-height: 1;
+    }
+    .price-note {
+      font-size: 0.85em;
+      color: #660000;
+    }
+
+    /* ════════════════════════════════════
+       SPECS TABLE
+    ════════════════════════════════════ */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88em;
+      margin-bottom: 10px;
+    }
+    .specs-table td {
+      padding: 5px 9px;
+      border: 1px solid #9900CC;
+    }
+    .specs-table tr:nth-child(odd)  { background: #EEccFF; }
+    .specs-table tr:nth-child(even) { background: #FFeeFF; }
+    .specs-table .lbl {
+      font-weight: bold;
+      color: #660099;
+      width: 36%;
+    }
+
+    /* ════════════════════════════════════
+       DESCRIPTION
+    ════════════════════════════════════ */
+    .desc-body {
+      font-size: 0.9em;
+      line-height: 1.9;
+    }
+    .highlight-box {
+      background: #EEFFEE;
+      border-left: 4px solid #009900;
+      padding: 8px 12px;
+      margin: 10px 0;
+      color: #004400;
+    }
+    .known-issues-box {
+      background: #FFF0F0;
+      border-left: 4px solid #CC0000;
+      padding: 8px 12px;
+      margin: 10px 0;
+    }
+    .subsub {
+      font-family: Impact, sans-serif;
+      color: #9900CC;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+      margin: 12px 0 4px;
+    }
+
+    /* ════════════════════════════════════
+       GALLERY — table-based layout
+    ════════════════════════════════════ */
+    .gallery-tbl {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 5px;
+    }
+    .gallery-tbl td {
+      text-align: center;
+      vertical-align: top;
+      width: 33.33%;
+    }
+    .gallery-tbl img {
+      width: 100%;
+      max-width: 220px;
+      border: 3px ridge #9900CC;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    .gallery-tbl img:hover {
+      border-color: #FF0000;
+      outline: 2px solid #FF0000;
+    }
+    .img-lbl {
+      font-size: 0.62em;
+      color: #0000CC;
+      margin-top: 2px;
+    }
+
+    /* ════════════════════════════════════
+       LIGHTBOX
+    ════════════════════════════════════ */
+    #lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.96);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #lightbox.open { display: flex; }
+    #lb-img {
+      max-width: 90vw; max-height: 80vh;
+      object-fit: contain;
+      border: 4px ridge #9900CC;
+    }
+    #lb-caption {
+      color: #FFD700;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 1em;
+      margin-top: 12px;
+      text-align: center;
+    }
+    #lb-counter {
+      position: absolute; top: 18px; left: 22px;
+      color: #aaa; font-size: 0.85em;
+    }
+    .lb-close {
+      position: absolute; top: 12px; right: 22px;
+      color: #FF0080; font-size: 2.6rem;
+      cursor: pointer; font-family: Impact, sans-serif; line-height: 1;
+    }
+    .lb-close:hover { color: #fff; }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      color: #FFD700; font-size: 3rem;
+      cursor: pointer; padding: 20px;
+      user-select: none;
+    }
+    .lb-nav:hover { color: #FF0000; }
+    #lb-prev { left: 4px; }
+    #lb-next { right: 4px; }
+
+    /* ════════════════════════════════════
+       CONTACT
+    ════════════════════════════════════ */
+    a.email-btn {
+      display: inline-block;
+      background: linear-gradient(to bottom, #FF6600, #CC0000);
+      color: #fff;
+      padding: 9px 24px;
+      font-family: Impact, sans-serif;
+      font-size: 1.2em;
+      text-decoration: none;
+      border: 3px outset #FF6600;
+      letter-spacing: 3px;
+    }
+    a.email-btn:hover { border-style: inset; }
+
+    /* ════════════════════════════════════
+       GUESTBOOK
+    ════════════════════════════════════ */
+    .guestbook {
+      background: #FFFFCC;
+      border: 3px solid #FF6600;
+      padding: 12px;
+      text-align: center;
+      margin: 12px 0;
+    }
+    a.gb-btn {
+      display: inline-block;
+      background: #660099;
+      color: #FFD700;
+      padding: 6px 20px;
+      text-decoration: none;
+      font-family: Impact, sans-serif;
+      letter-spacing: 2px;
+      border: 3px outset #9900CC;
+      font-size: 0.9em;
+    }
+    a.gb-btn:hover { border-style: inset; }
+
+    /* ════════════════════════════════════
+       WEB RING
+    ════════════════════════════════════ */
+    .webring {
+      background: #000066;
+      color: #FFD700;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em;
+      border: 3px outset #9999FF;
+      margin: 10px 0;
+    }
+
+    /* ════════════════════════════════════
+       UNDER CONSTRUCTION
+    ════════════════════════════════════ */
+    .under-construction {
+      text-align: center;
+      background: #FFFF00;
+      border: 4px solid #FF0000;
+      padding: 10px;
+      margin: 12px 0;
+    }
+
+    /* ════════════════════════════════════
+       VISITOR COUNTER
+    ════════════════════════════════════ */
+    .counter {
+      font-family: "Courier New", monospace;
+      font-size: 1.5em;
+      background: #000;
+      color: #00FF00;
+      padding: 4px 14px;
+      border: 2px inset #00FF00;
+      letter-spacing: 5px;
+    }
+
+    /* ════════════════════════════════════
+       FOOTER BADGES
+    ════════════════════════════════════ */
+    .footer-badge {
+      display: inline-block;
+      background: #000066;
+      color: #FFD700;
+      padding: 2px 9px;
+      font-size: 0.72em;
+      margin: 2px;
+    }
+
+    @media (max-width: 540px) {
+      .page-title { font-size: 1.8em; }
+      .price-amount { font-size: 2.6em; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-center">
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner">
+      ★ WELCOME TO MY BRONCO PAGE!!! ★ 1992 FORD BRONCO XLT FOR SALE ★ $19,500 OBO ★ AUSTIN TEXAS ★ SCROLL DOWN FOR PHOTOS AND VIDEO!!! ★ SERIOUS BUYERS ONLY ★ EMAIL ME!!! ★ NO TRADES ★
+    </span>
+  </div>
+
+  <!-- ══════════════════════════════════
+       HEADER
+  ══════════════════════════════════ -->
+  <div style="text-align:center; margin-bottom:8px;">
+    <div class="page-title">🐴 Jesse's Bronco Page! 🐴</div>
+    <div class="page-subtitle">THE BEAST IS FOR SALE!!!</div>
+    <span class="badge-new">NEW!</span>
+    <span class="badge-hot">HOT!</span>
+    <span class="badge-new">NEW!</span>
+    <span class="badge-hot">HOT!</span>
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- WELCOME TEXT -->
+  <div style="text-align:center; font-size:1em; line-height:1.95; margin: 0 0 8px;">
+    <span style="color:#660099; font-size:1.2em;">Hi!!! Welcome to my page!!!</span><br>
+    My name is Jesse and I live in <span style="color:#0000CC; font-weight:bold;">Austin, Texas</span>.<br>
+    I have been driving this amazing truck since <span style="color:#FF6600; font-weight:bold;">2018</span> and it is
+    <span style="color:#9900CC; font-style:italic;">my daily driver!!</span><br>
+    It is time for <span style="color:#FF0000; font-family:Impact,sans-serif; font-size:1.1em;">THE BEAST</span>
+    to find a new home. 😢<br>
+    <br>
+    <span style="color:#006600; font-style:italic;">Over $24,000 in documented service work!! All receipts included!!</span>
+  </div>
+
+  <hr class="dots">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">📋 PAGE CONTENTS — CLICK TO JUMP!!</div>
+    <ul style="margin:0; padding-left:22px;">
+      <li><a href="#price">💰 Asking Price</a></li>
+      <li><a href="#specs">⚙️ Vehicle Specs &amp; Quick Facts</a></li>
+      <li><a href="#about">🐴 About The Beast</a></li>
+      <li><a href="#work">🔧 All The Work I've Done</a></li>
+      <li><a href="#photos">📸 Photo Gallery</a> <span class="badge-new">NEW PICS!</span></li>
+      <li><a href="#video">🎬 Video</a></li>
+      <li><a href="#contact">✉️ Contact Me / Email Me!!</a></li>
+      <li><a href="#guestbook">📖 Sign My Guestbook!!</a></li>
+    </ul>
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       PRICE
+  ══════════════════════════════════ -->
+  <a name="price"></a>
+  <div class="price-box">
+    <div class="price-label">💰 ASKING PRICE 💰</div>
+    <div class="price-amount">$19,500</div>
+    <div class="price-note">*** OR BEST OFFER *** &nbsp;·&nbsp; NO TRADES &nbsp;·&nbsp; SERIOUS BUYERS ONLY ***</div>
+  </div>
+
+  <hr class="dots">
+
+  <!-- ══════════════════════════════════
+       SPECS
+  ══════════════════════════════════ -->
+  <a name="specs"></a>
+  <div class="section-title" style="background:#000099; color:#FFD700;">⚙️ VEHICLE SPECS</div>
+  <table class="specs-table">
+    <tr><td class="lbl">Year</td><td>1992</td></tr>
+    <tr><td class="lbl">Make / Model</td><td>Ford Bronco</td></tr>
+    <tr><td class="lbl">Trim</td><td>XLT</td></tr>
+    <tr><td class="lbl">Engine</td><td>5.0L 302 V8</td></tr>
+    <tr><td class="lbl">Transmission</td><td>Automatic</td></tr>
+    <tr><td class="lbl">Drivetrain</td><td>4WD</td></tr>
+    <tr><td class="lbl">Mileage</td><td>261,000 miles</td></tr>
+    <tr><td class="lbl">Exterior Color</td><td>Oxford White / Dark Blue Two-Tone</td></tr>
+    <tr><td class="lbl">Interior</td><td>Blue/Grey Cloth (Original!)</td></tr>
+    <tr><td class="lbl">Title</td><td>Clean / Lien-Free</td></tr>
+    <tr><td class="lbl">Location</td><td>Austin, TX</td></tr>
+    <tr><td class="lbl">VIN</td><td>1FMEU15NONLA27169</td></tr>
+  </table>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════ -->
+  <a name="about"></a>
+  <div class="section-title" style="background:#660099; color:#FFD700;">🐴 ABOUT THE BEAST</div>
+  <div class="desc-body">
+
+    <p>This is a <span style="color:#9900CC; font-weight:bold;">1992 Ford Bronco XLT</span> — Oxford White over Dark Blue Two-Tone, original blue tweed interior — that I have driven as my daily driver in Austin for eight years. Bought it in early 2018 at roughly 226,000 miles; it is now at approximately 261,000. I am not a "car guy." I am someone who found a great truck, drove it seriously, and kept it properly maintained.</p>
+
+    <div class="highlight-box">
+      💰 <strong>Over $24,000 in documented service receipts since purchase — all available for the buyer.</strong>
+    </div>
+
+    <p class="subsub">WHAT IT HAD WHEN I BOUGHT IT (2018):</p>
+    <ul style="color:#333; margin-left:20px;">
+      <li><b>Engine:</b> New timing chain. Rebuilt fuel injectors. All-new engine sensors.</li>
+      <li><b>Cooling &amp; Climate:</b> New radiator and water pump. AC system rebuilt — ran ice cold at purchase.</li>
+      <li><b>Suspension &amp; Steering:</b> Six new shocks including the dual front shock setup. Rebuilt steering column. New OEM Ford steering wheel.</li>
+      <li><b>Body &amp; Paint:</b> Repainted in original Oxford White and Dark Blue prior to sale.</li>
+      <li><b>Interior:</b> Original blue tweed — crack-free dash, no tears or significant wear on the seat fabric. Remarkably well-preserved for a 33-year-old truck.</li>
+    </ul>
+
+    <p style="margin-top:10px;"><span style="color:#FF6600; font-weight:bold;">Condition:</span> Drives GREAT!! 4WD is excellent — got me out of the 2021 Austin snowpocalypse without hesitation!! AC blows cold. Interior is in great shape for a 33-year-old truck!!</p>
+
+    <div class="known-issues-box">
+      <span style="color:#CC0000; font-weight:bold;">Known Issues:</span> Some exterior trim pieces missing. Paint has cosmetic wear — scratches and minor dings consistent with eight years as a daily driver, nothing structural. Tailgate latch not functioning. Hub covers on hand but not installed.
+    </div>
+
+    <p><span style="color:#006600; font-weight:bold;">What Comes With It:</span> Running boards, aftermarket sound system, phone/dash mount, hub covers, XLT 2" tow package, underbody rock guards, 31" tires, and the full service file.</p>
+
+    <p style="margin-top:10px; color:#9900CC; font-style:italic;">Come look at it. Have your mechanic check it. ATX!! 🤠</p>
+
+  </div>
+
+  <hr class="dots">
+
+  <!-- ══════════════════════════════════
+       MECHANICAL WORK
+  ══════════════════════════════════ -->
+  <a name="work"></a>
+  <div class="section-title" style="background:#006600; color:#FFD700;">🔧 ALL THE WORK I'VE DONE</div>
+  <div class="desc-body">
+
+    <p class="subsub">ENGINE &amp; IGNITION</p>
+    <ul style="margin-left:20px; color:#333;">
+      <li>2018 — Starter solenoid replaced, new starter, wiring repaired.</li>
+      <li>2019 — Starter motor replaced; coolant temperature sensor replaced (hard starts, running rough).</li>
+      <li>2020 — Full tune-up: distributor, ignition coil assembly, rotor, spark plugs.</li>
+      <li>2024 — Water pump, thermostat, radiator hoses; fuel injection service.</li>
+      <li style="color:#CC0000;"><b>2025 — Cylinder heads replaced with machine shop work. Timing cover assembly replaced. All 8 spark plugs and wires replaced. Major top-end overhaul.</b></li>
+    </ul>
+
+    <p class="subsub">BRAKES &amp; SUSPENSION</p>
+    <ul style="margin-left:20px; color:#333;">
+      <li>2019 — ABS hydraulic unit replaced; new brake hoses.</li>
+      <li>2022 — Front disc pads &amp; rotors; rear brake shoes &amp; hardware; full brake fluid flush.</li>
+      <li>2024 — <b>All four suspension control arms replaced</b> (upper and lower, both sides); front brakes again.</li>
+    </ul>
+
+    <p class="subsub">COOLING &amp; CLIMATE</p>
+    <ul style="margin-left:20px; color:#333;">
+      <li>2020 — Complete new AC system: compressor, condenser, both hoses; R12 → R134A conversion. Runs cold.</li>
+      <li>2024 — Coolant reservoir replaced; cooling system flush.</li>
+      <li>2025 — Additional cooling work concurrent with cylinder head job.</li>
+    </ul>
+
+    <p class="subsub">DRIVETRAIN &amp; OTHER</p>
+    <ul style="margin-left:20px; color:#333;">
+      <li>2024 — Transmission service; transfer case fluid exchange; differential service.</li>
+      <li>2022 — Serpentine belt replaced.</li>
+      <li>2019 — New battery.</li>
+      <li>2018 — Running boards installed.</li>
+    </ul>
+
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       PHOTO GALLERY
+  ══════════════════════════════════ -->
+  <a name="photos"></a>
+  <div class="section-title" style="background:#CC0000; color:#FFD700;">📸 PHOTO GALLERY <span class="badge-new">NEW PICS!</span></div>
+  <p style="text-align:center; font-size:0.82em; color:#660099;"><i>Click any photo to see it bigger!! (25 total photos!!)</i></p>
+
+  <!-- EXTERIOR -->
+  <div class="subsection-bar">» EXTERIOR SHOTS «</div>
+  <table class="gallery-tbl">
+    <tr>
+      <td><img src="images/exterior-front-quarter-driver-01.jpeg" onclick="openLightbox(0)" alt="Front Quarter - Driver"><div class="img-lbl">Front Quarter — Driver</div></td>
+      <td><img src="images/exterior-front-01.jpeg" onclick="openLightbox(1)" alt="Front Straight On"><div class="img-lbl">Front Straight On</div></td>
+      <td><img src="images/exterior-front-02.jpeg" onclick="openLightbox(2)" alt="Front - Alt"><div class="img-lbl">Front — Alt</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/exterior-front-quarter-driver-02.jpeg" onclick="openLightbox(3)" alt="Front Quarter #2"><div class="img-lbl">Front Quarter #2</div></td>
+      <td><img src="images/exterior-front-quarter-driver-03.jpeg" onclick="openLightbox(4)" alt="Front Quarter #3"><div class="img-lbl">Front Quarter #3</div></td>
+      <td><img src="images/exterior-front-quarter-passenger-01.jpeg" onclick="openLightbox(5)" alt="Front Quarter - Passenger"><div class="img-lbl">Front Quarter — Passenger</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/exterior-front-wide-angle.jpeg" onclick="openLightbox(6)" alt="Front Wide Angle"><div class="img-lbl">Front Wide Angle</div></td>
+      <td><img src="images/exterior-side-driver-01.jpeg" onclick="openLightbox(7)" alt="Driver Side"><div class="img-lbl">Driver Side</div></td>
+      <td><img src="images/exterior-side-driver-02.jpeg" onclick="openLightbox(8)" alt="Driver Side Alt"><div class="img-lbl">Driver Side — Alt</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/exterior-rear-01.jpeg" onclick="openLightbox(9)" alt="Rear - Spare Tire"><div class="img-lbl">Rear — Spare Tire</div></td>
+      <td><img src="images/exterior-rear-quarter-driver-01.jpeg" onclick="openLightbox(10)" alt="Rear Quarter - Driver"><div class="img-lbl">Rear Quarter — Driver</div></td>
+      <td><img src="images/exterior-rear-quarter-passenger-01.jpeg" onclick="openLightbox(11)" alt="Rear Quarter - Passenger"><div class="img-lbl">Rear Quarter — Passenger</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/exterior-wheel-bronco-badge.jpeg" onclick="openLightbox(12)" alt="Wheel + Bronco Badge"><div class="img-lbl">Wheel + Bronco Badge</div></td>
+      <td><img src="images/exterior-hood-open-front.jpeg" onclick="openLightbox(13)" alt="Hood Open - Front"><div class="img-lbl">Hood Open — Front</div></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <hr class="thin">
+
+  <!-- INTERIOR -->
+  <div class="subsection-bar">» INTERIOR SHOTS «</div>
+  <table class="gallery-tbl">
+    <tr>
+      <td><img src="images/interior-front-seats-driver-view.jpeg" onclick="openLightbox(14)" alt="Front Seats - Driver View"><div class="img-lbl">Front Seats — Driver View</div></td>
+      <td><img src="images/interior-front-seats-passenger-view.jpeg" onclick="openLightbox(15)" alt="Front Seats - Passenger View"><div class="img-lbl">Front Seats — Passenger</div></td>
+      <td><img src="images/interior-dashboard-steering-wheel.jpeg" onclick="openLightbox(16)" alt="Dashboard + Steering Wheel"><div class="img-lbl">Dashboard + Wheel</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/interior-door-panel-driver.jpeg" onclick="openLightbox(17)" alt="Driver Door Panel"><div class="img-lbl">Driver Door Panel</div></td>
+      <td><img src="images/interior-door-panel-passenger.jpeg" onclick="openLightbox(18)" alt="Passenger Door Panel"><div class="img-lbl">Passenger Door Panel</div></td>
+      <td><img src="images/interior-rear-seat.jpeg" onclick="openLightbox(19)" alt="Rear Bench Seat"><div class="img-lbl">Rear Bench Seat</div></td>
+    </tr>
+    <tr>
+      <td><img src="images/interior-cargo-area.jpeg" onclick="openLightbox(20)" alt="Cargo Area"><div class="img-lbl">Cargo Area</div></td>
+      <td><img src="images/interior-overhead-view.jpeg" onclick="openLightbox(21)" alt="Interior Overhead"><div class="img-lbl">Interior Overhead</div></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <hr class="thin">
+
+  <!-- ENGINE BAY -->
+  <div class="subsection-bar">» ENGINE BAY «</div>
+  <table class="gallery-tbl">
+    <tr>
+      <td><img src="images/engine-bay-01.jpeg" onclick="openLightbox(22)" alt="Engine Bay #1"><div class="img-lbl">Engine Bay #1</div></td>
+      <td><img src="images/engine-bay-02.jpeg" onclick="openLightbox(23)" alt="Engine Bay #2"><div class="img-lbl">Engine Bay #2</div></td>
+      <td><img src="images/engine-bay-03.jpeg" onclick="openLightbox(24)" alt="Engine Bay #3"><div class="img-lbl">Engine Bay #3</div></td>
+    </tr>
+  </table>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       VIDEO
+  ══════════════════════════════════ -->
+  <a name="video"></a>
+  <div class="section-title" style="background:#CC0066; color:#fff;">🎬 VIDEO!!!</div>
+  <p style="text-align:center; font-size:0.82em; color:#660099; margin-bottom:8px;"><i>Check out The Beast in action!!! 😍</i></p>
+  <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border:4px ridge #9900CC;">
+    <iframe
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      src="https://www.youtube.com/embed/DMjwwC0ZR6Q"
+      title="1992 Ford Bronco — The Beast"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <hr class="dots">
+
+  <!-- QR CODE -->
+  <div style="text-align:center; background:#EEEEFF; border:3px ridge #660099; padding:16px; margin:12px 0;">
+    <div style="font-family:Impact,sans-serif; color:#660099; font-size:1.15em; letter-spacing:3px; margin-bottom:4px;">📱 SCAN WITH YOUR PHONE!!</div>
+    <div style="font-size:0.8em; color:#999; margin-bottom:10px;">Print this out and put it in the window!!</div>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fjesse.ventures%2Fthebeast&margin=10"
+         alt="QR Code — jesse.ventures/thebeast" width="200" height="200"
+         style="border:8px solid white; box-shadow:0 0 0 3px #9900CC;">
+    <div style="font-family:'Courier New',monospace; color:#0000CC; margin-top:10px; font-size:0.9em;">jesse.ventures/thebeast</div>
+    <div style="font-size:0.72em; color:#999; margin-top:4px;">Right-click → Save image to print!!</div>
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════ -->
+  <a name="contact"></a>
+  <div class="section-title" style="background:#FF6600; color:#fff;">✉️ CONTACT ME!!!</div>
+  <div style="text-align:center; line-height:2; font-size:0.93em;">
+    <p>Serious buyers only please!! No trades!! Happy to answer questions and arrange a viewing in <b>Austin, TX</b>!!</p>
+    <p style="color:#660099; margin:8px 0;">Feel free to shoot me a text: <b style="font-size:1.25em; color:#CC0000;">512-415-5475</b></p>
+    <br>
+    <a class="email-btn" href="mailto:jesse.lunsford@gmail.com">✉ EMAIL ME!!</a>
+    <br><br>
+    <span style="font-size:0.82em; color:#666;">jesse.lunsford@gmail.com &nbsp;·&nbsp; Austin, TX</span>
+  </div>
+
+  <hr class="dots">
+
+  <!-- UNDER CONSTRUCTION -->
+  <div class="under-construction">
+    <span style="font-size:2em;" class="blink">🚧</span>
+    <span style="font-family:Impact,sans-serif; color:#CC0000; font-size:1.05em; letter-spacing:2px;"> THIS PAGE IS ALWAYS BEING UPDATED!! </span>
+    <span style="font-size:2em;" class="blink">🚧</span>
+    <br>
+    <span style="font-size:0.8em; color:#660000;">Come back soon for more info!! Last updated March 2026.</span>
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       GUESTBOOK
+  ══════════════════════════════════ -->
+  <a name="guestbook"></a>
+  <div class="guestbook">
+    <div style="font-family:Impact,sans-serif; font-size:1.3em; color:#660099; letter-spacing:3px; margin-bottom:6px;">📖 SIGN MY GUESTBOOK!!</div>
+    <p style="font-size:0.85em; color:#333; margin:0 0 10px;">Let me know you stopped by!! Or leave a message if you're interested in The Beast!!</p>
+    <a class="gb-btn" href="mailto:jesse.lunsford@gmail.com?subject=Bronco%20Guestbook">✍ SIGN IT!!</a>
+    &nbsp;<span style="font-size:0.75em; color:#999;">(opens your email app)</span>
+  </div>
+
+  <!-- WEB RING -->
+  <div class="webring">
+    <div style="font-family:Impact,sans-serif; font-size:0.9em; letter-spacing:3px; margin-bottom:4px;">🔗 CLASSIC TRUCK WEB RING 🔗</div>
+    <span style="font-size:0.82em;">[ ← Prev ]&nbsp;&nbsp;&nbsp; You are here! &nbsp;&nbsp;&nbsp; [ Next → ]</span><br>
+    <span style="font-size:0.72em; color:#9999FF;">Join the ring &nbsp;·&nbsp; List all sites &nbsp;·&nbsp; Random site</span>
+  </div>
+
+  <hr class="rainbow">
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <div style="text-align:center; font-size:0.8em; color:#666; line-height:2.2; margin-top:6px;">
+    <div style="margin-bottom:8px;">
+      <span style="font-size:0.85em; color:#660099;">You are visitor #</span><br>
+      <span class="counter">001,337</span>
+    </div>
+    <div style="margin:8px 0;">
+      <span class="footer-badge">Best Viewed In Netscape Navigator 4.0</span>
+      <span class="footer-badge">At 800×600 Resolution</span>
+      <span class="footer-badge">16-Bit Color</span>
+      <span class="footer-badge">JavaScript Enabled</span>
+    </div>
+    <div>
+      <span style="color:#9900CC;">Last Updated: March 2026</span>
+      &nbsp;·&nbsp;
+      <a href="mailto:jesse.lunsford@gmail.com" style="color:#0000CC;">Email the Webmaster</a>
+    </div>
+    <div style="margin-top:6px; color:#aaa; font-size:0.82em;">
+      © 1992–2026 Jesse's Bronco Page &nbsp;·&nbsp; jesse.ventures/thebeast<br>
+      <span style="color:#ccc; font-size:0.85em;">This page best viewed with JavaScript enabled. No cookies were harmed in the making of this website.</span>
+    </div>
+  </div>
+
+</div><!-- /page-center -->
+
+<!-- ══════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════ -->
+<div id="lightbox">
+  <span class="lb-close" onclick="closeLightbox()">✕</span>
+  <span id="lb-counter"></span>
+  <span class="lb-nav" id="lb-prev" onclick="shiftLightbox(-1)">&#9664;</span>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-caption"></div>
+  <span class="lb-nav" id="lb-next" onclick="shiftLightbox(1)">&#9654;</span>
+</div>
+
+<script>
+  const IMAGES = [
+    { src: 'images/exterior-front-quarter-driver-01.jpeg', cap: 'Front Quarter — Driver Side' },
+    { src: 'images/exterior-front-01.jpeg',                cap: 'Front Straight On' },
+    { src: 'images/exterior-front-02.jpeg',                cap: 'Front — Alt Location' },
+    { src: 'images/exterior-front-quarter-driver-02.jpeg', cap: 'Front Quarter — Driver #2' },
+    { src: 'images/exterior-front-quarter-driver-03.jpeg', cap: 'Front Quarter — Driver #3' },
+    { src: 'images/exterior-front-quarter-passenger-01.jpeg', cap: 'Front Quarter — Passenger Side' },
+    { src: 'images/exterior-front-wide-angle.jpeg',        cap: 'Front Wide Angle' },
+    { src: 'images/exterior-side-driver-01.jpeg',          cap: 'Driver Side Profile' },
+    { src: 'images/exterior-side-driver-02.jpeg',          cap: 'Driver Side Profile — Alt' },
+    { src: 'images/exterior-rear-01.jpeg',                 cap: 'Rear — Bronco Spare Tire' },
+    { src: 'images/exterior-rear-quarter-driver-01.jpeg',  cap: 'Rear Quarter — Driver Side' },
+    { src: 'images/exterior-rear-quarter-passenger-01.jpeg', cap: 'Rear Quarter — Passenger Side' },
+    { src: 'images/exterior-wheel-bronco-badge.jpeg',      cap: 'Wheel + Bronco Badge' },
+    { src: 'images/exterior-hood-open-front.jpeg',         cap: 'Hood Open — Front' },
+    { src: 'images/interior-front-seats-driver-view.jpeg', cap: 'Front Seats — Driver View' },
+    { src: 'images/interior-front-seats-passenger-view.jpeg', cap: 'Front Seats — Passenger View' },
+    { src: 'images/interior-dashboard-steering-wheel.jpeg', cap: 'Dashboard + Steering Wheel' },
+    { src: 'images/interior-door-panel-driver.jpeg',       cap: 'Driver Door Panel' },
+    { src: 'images/interior-door-panel-passenger.jpeg',    cap: 'Passenger Door Panel' },
+    { src: 'images/interior-rear-seat.jpeg',               cap: 'Rear Bench Seat' },
+    { src: 'images/interior-cargo-area.jpeg',              cap: 'Cargo Area' },
+    { src: 'images/interior-overhead-view.jpeg',           cap: 'Interior Overhead View' },
+    { src: 'images/engine-bay-01.jpeg',                    cap: 'Engine Bay #1' },
+    { src: 'images/engine-bay-02.jpeg',                    cap: 'Engine Bay #2' },
+    { src: 'images/engine-bay-03.jpeg',                    cap: 'Engine Bay #3' },
+  ];
+
+  let idx = 0;
+
+  function openLightbox(i) {
+    idx = i;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function shiftLightbox(dir) {
+    idx = (idx + dir + IMAGES.length) % IMAGES.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    const item = IMAGES[idx];
+    document.getElementById('lb-img').src = item.src;
+    document.getElementById('lb-caption').textContent = item.cap;
+    document.getElementById('lb-counter').textContent = (idx + 1) + ' / ' + IMAGES.length;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') shiftLightbox(1);
+    if (e.key === 'ArrowLeft')  shiftLightbox(-1);
+    if (e.key === 'Escape')     closeLightbox();
+  });
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+</script>
+
+</body>
+</html>

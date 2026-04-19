@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesse.jp - AI</title>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: black;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding-top: 20px;
+    }
+    .menu {
+      white-space: pre;
+      font-size: 18px;
+      color: #FFBF00;
+    }
+    .menu a {
+      color: #FFBF00;
+      text-decoration: none;
+      position: relative;
+    }
+    /* Default brackets for all links */
+    .menu a::before {
+      content: "[ ";
+      color: #FFBF00;
+      pointer-events: none;
+    }
+    .menu a::after {
+      content: " ]";
+      color: #FFBF00;
+      pointer-events: none;
+    }
+    /* Hover effect for all links */
+    .menu a:hover {
+      color: green;
+    }
+    .menu a:hover::before,
+    .menu a:hover::after {
+      color: #FFBF00;
+    }
+    /* Remove brackets on links with the no-brackets class */
+    .menu a.no-brackets::before,
+    .menu a.no-brackets::after {
+      content: "";
+    }
+    /* Active link styling */
+    .active {
+      color: green;
+    }
+    /* Force welcome text to always be green */
+    .menu a.welcome,
+    .menu a.welcome:hover {
+      color: green !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- You are working on jesse.jp - AI Page (ai.html) -->
+  <div class="menu">
+==============================
+<a href="https://jesse.ventures" class="no-brackets welcome">WELCOME TO JESSE.VENTURES</a>
+==============================
+  
+<a href="now.html">NOW</a>   <a href="ai.html" class="active">AI</a>   <a href="crypto.html">CRYPTO</a>   <a href="otherstuff.html">OTHER STUFF</a>   <a href="contact.html">CONTACT</a>
+  
+------------------------------
+ This is the AI page.
+------------------------------
+  </div>
+</body>
+</html>

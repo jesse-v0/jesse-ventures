@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- This is my landing page for the jesse.ventures landing page -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesse.Ventures</title>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: black;
+      color: #FFBF00;
+      margin: 0;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+    h2, p {
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+    }
+    .menu {
+      white-space: pre;
+      font-size: 18px;
+    }
+    .menu a {
+      color: #FFBF00;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+    }
+    .menu a::before {
+      content: "  [";
+      color: #FFBF00;
+      pointer-events: none;
+    }
+    .menu a::after {
+      content: "]  ";
+      color: #FFBF00;
+      pointer-events: none;
+    }
+    .menu a.no-brackets::before,
+    .menu a.no-brackets::after {
+      content: "";
+    }
+    .menu a.active {
+      color: green;
+    }
+    .section {
+      display: none;
+      margin-top: 30px;
+    }
+    .section.active {
+      display: block;
+    }
+    .contact-info {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .contact-info a {
+      color: #FFBF00;
+      text-decoration: none;
+    }
+    .resource-link {
+      color: #FFBF00;
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <span style="color: green;">==============================</span>
+    <a href="https://jesse.ventures" class="no-brackets active">WELCOME TO JESSE.VENTURES</a>
+    <span style="color: green;">==============================</span>
+    
+    <a class="nav-link" data-section="now">NOW</a><!--
+    --><a href="https://jesse.ventures/homepage/" class="nav-link" target="_blank" rel="noopener noreferrer">THEN</a><!--
+    --><a class="nav-link" data-section="ai">AI</a><!--
+    --><a class="nav-link" data-section="crypto">CRYPTO</a><!--
+    --><a class="nav-link" data-section="otherstuff">OTHER STUFF</a><!--
+    --><a class="nav-link" data-section="contact">CONTACT</a>
+    
+    <span style="color: green;">------------------------------</span>
+  </div>
+  
+  <div id="home" class="section active">
+    <span style="color: #FFBF00; display:block;">------------------------------</span>
+    <h2>Select a link to continue ...</h2>
+    <span style="color: #FFBF00; display:block;">------------------------------</span>
+  </div>
+  
+  <div id="now" class="section">
+    <h2>NOW</h2>
+    <p>This is the Now page.</p>
+  </div>
+  
+  <div id="thepast" class="section">
+    <h2>THEN</h2>
+    <p>This is the The Past page.</p>
+  </div>
+  
+  <div id="ai" class="section">
+    <h2>AI</h2>
+    <p>This is the AI page.</p>
+    <p>
+      <a href="/resources/TheAIAgentModelPortfolio.pdf"
+         class="resource-link"
+         target="_blank"
+         rel="noopener noreferrer">
+        Download The AI Agent Model Portfolio
+      </a>
+    </p>
+  </div>
+  
+  <div id="crypto" class="section">
+    <h2>CRYPTO</h2>
+    <p>This is the Crypto page.</p>
+  </div>
+  <div id="otherstuff" class="section">
+    <h2>OTHER STUFF</h2>
+    <p>This is the Other Stuff page.</p>
+  </div>
+  <div id="contact" class="section">
+    <h2>CONTACT</h2>
+    <p>You can reach me at:</p>
+    <div class="contact-info">
+      <p>Email: jesse@raineyventures.com</p>
+      <p>Phone: 512-415-5475 </p>
+    </div>
+  </div>
+  
+  <script>
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.forEach(function(lnk) {
+          lnk.classList.remove('active');
+        });
+        this.classList.add('active');
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          section.classList.remove('active');
+        });
+        var sectionId = this.getAttribute('data-section');
+        document.getElementById(sectionId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
