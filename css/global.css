@@ -1,0 +1,228 @@
+/* ============================================================
+   jesse.ventures — Global Styles
+   Import tokens.css first, then this file
+   ============================================================ */
+
+@import './tokens.css';
+
+/* ----------------------------------------------------------
+   RESET
+   ---------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ----------------------------------------------------------
+   BASE
+   ---------------------------------------------------------- */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-header);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+p {
+  font-family: var(--font-body);
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* ----------------------------------------------------------
+   LAYOUT
+   ---------------------------------------------------------- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.content {
+  max-width: var(--content-width);
+}
+
+/* ----------------------------------------------------------
+   NAV
+   ---------------------------------------------------------- */
+
+.site-nav {
+  border-bottom: var(--border-width-thick) var(--border-style) var(--color-border);
+  padding: var(--space-4) 0;
+}
+
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-nav__logo {
+  font-family: var(--font-header);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-header);
+  text-transform: uppercase;
+}
+
+.site-nav__logo:hover {
+  color: var(--color-text-primary);
+}
+
+.site-nav__links {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.site-nav__links a {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-nav__links a:hover,
+.site-nav__links a.active {
+  color: var(--color-accent-red);
+}
+
+/* ----------------------------------------------------------
+   HERO
+   ---------------------------------------------------------- */
+
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: var(--border-width-thin) var(--border-style) var(--color-border);
+}
+
+.hero img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+/* ----------------------------------------------------------
+   BUTTONS / CTAs
+   ---------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-header);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-6);
+  border: var(--border-width-thick) var(--border-style) var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: var(--border-radius);
+}
+
+.btn--primary {
+  background-color: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  border-color: var(--color-cta-bg);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-text-primary);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
+/* ----------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------- */
+
+.site-footer {
+  border-top: var(--border-width-thick) var(--border-style) var(--color-border);
+  padding: var(--space-6) 0;
+  margin-top: var(--space-10);
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ----------------------------------------------------------
+   UTILITY
+   ---------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+.text-red   { color: var(--color-accent-red); }
+.text-blue  { color: var(--color-accent-blue); }
+.text-gold  { color: var(--color-accent-gold); }
+.text-mono  { font-family: var(--font-body); }
+.text-upper { text-transform: uppercase; letter-spacing: 0.08em; }
+
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }

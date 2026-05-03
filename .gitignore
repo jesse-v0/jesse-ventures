@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env*.local
+
+# Netlify
+.netlify/
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.zip
+error_log

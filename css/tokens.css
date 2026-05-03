@@ -1,0 +1,120 @@
+/* ============================================================
+   JESSE.VENTURES — DESIGN TOKENS
+   Visual Constitution: Suburban Edition
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE
+     ---------------------------------------------------------- */
+
+  /* Backgrounds */
+  --color-bg-primary:        #FAF0E6;   /* Parchment / Off-White — Smooth Cardstock */
+  --color-bg-secondary:      #F0E8DC;   /* Slightly darker parchment for section contrast */
+
+  /* Text */
+  --color-text-primary:      #000000;   /* Charcoal Black — Signage lettering, typewriter bodies */
+  --color-text-secondary:    #404040;   /* Suburban Asphalt — secondary text, grid structure */
+  --color-text-inverse:      #FAF0E6;   /* Parchment — text on dark/red backgrounds */
+
+  /* Accents */
+  --color-accent-red:        #C8102E;   /* Signage Red — PRIMARY: CTAs, active buttons, active links */
+  --color-accent-blue:       #0033A0;   /* Blueprint Blue — SECONDARY: standard links, secondary buttons */
+  --color-accent-gold:       #DFB163;   /* Manila Gold — SUBTLE: hover states, section highlights */
+
+  /* Borders & Structure */
+  --color-border:            #404040;   /* Suburban Asphalt — grid lines, subtle borders */
+  --color-border-light:      #C8B89A;   /* Lighter parchment-toned rule for internal dividers */
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+     ---------------------------------------------------------- */
+
+  /* Font Families */
+  --font-header:   'Arial', 'Helvetica Neue', Helvetica, sans-serif;  /* Clean, bold geometric sans — The Bob Lunsford Standard */
+  --font-body:     'Courier New', 'IBM Courier New', Courier, monospace; /* Strictly monospaced — typewriter utility */
+
+  /* Font Sizes */
+  --font-size-h1:   2.00rem;   /* 32px — Page titles, hero headers */
+  --font-size-h2:   1.75rem;   /* 28px — Section headers */
+  --font-size-h3:   1.50rem;   /* 24px — Sub-headers, nav items */
+  --font-size-body: 1.00rem;   /* 16px — Body copy */
+  --font-size-sm:   0.875rem;  /* 14px — Form inputs, captions, fine print */
+  --font-size-xs:   0.75rem;   /* 12px — Disclaimers, labels */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-bold:   700;
+
+  /* Line Heights */
+  --line-height-tight:  1.2;
+  --line-height-normal: 1.6;
+  --line-height-loose:  2.0;   /* Notepad / ruled-paper feel for body blocks */
+
+  /* Letter Spacing */
+  --letter-spacing-header: 0.05em;   /* Slight tracking on headers for signage feel */
+  --letter-spacing-body:   0.01em;
+
+  /* ----------------------------------------------------------
+     SPACING SCALE
+     ---------------------------------------------------------- */
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ----------------------------------------------------------
+     LAYOUT
+     ---------------------------------------------------------- */
+
+  --max-width:          1100px;
+  --content-width:       720px;   /* Readable column width for body copy */
+  --gutter:              24px;
+
+  /* ----------------------------------------------------------
+     BORDERS & RULES
+     ---------------------------------------------------------- */
+
+  --border-width-thin:   1px;
+  --border-width-thick:  2px;
+  --border-style:        solid;
+  --border-radius:       0;        /* No rounded corners — strict grid aesthetic */
+
+  /* ----------------------------------------------------------
+     INTERACTIVE STATES
+     ---------------------------------------------------------- */
+
+  --color-link:          var(--color-accent-blue);
+  --color-link-hover:    var(--color-accent-red);
+  --color-link-active:   var(--color-accent-red);
+  --color-cta-bg:        var(--color-accent-red);
+  --color-cta-text:      var(--color-text-inverse);
+  --color-hover-row:     var(--color-accent-gold);   /* Manila Gold table row hover */
+
+  /* ----------------------------------------------------------
+     TEXTURE & PATTERN
+     ---------------------------------------------------------- */
+
+  /* Reference paths — relative to site root */
+  --texture-parchment:  url('/design-system/assets/textures/cardstock-parchment.webp');
+  --texture-concrete:   url('/design-system/assets/textures/concrete-pitted.webp');
+
+  /* ----------------------------------------------------------
+     Z-INDEX SCALE
+     ---------------------------------------------------------- */
+
+  --z-base:      0;
+  --z-above:    10;
+  --z-nav:     100;
+  --z-overlay: 200;
+  --z-modal:   300;
+
+}

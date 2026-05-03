@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+  <title>Electrical plug and socket</title>
+  <rect x="8" y="12" width="22" height="28"/>
+  <path d="M15 20v8M23 20v8"/>
+  <path d="M30 26h8v14a10 10 0 0 0 10 10h8"/>
+  <path d="M44 22v10M52 22v10"/>
+  <path d="M40 32h16v8H40z"/>
+</svg>
