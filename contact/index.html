@@ -4,284 +4,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Jesse.Ventures</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'JetBrains Mono', 'Consolas', monospace;
-      background: #0a0a0a;
-      color: #FFB000;
-      min-height: 100vh;
-      padding: 2.5rem 1.5rem;
-      -webkit-font-smoothing: antialiased;
+    /* ── PAGE LAYOUT ──────────────────────────────────── */
+
+    .contact-wrap {
+      padding: var(--space-8) 0 var(--space-10);
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: repeating-linear-gradient(
-        0deg, transparent, transparent 2px,
-        rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
-      );
-      pointer-events: none;
-      z-index: 100;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+      align-items: start;
+      border-top: 2px solid var(--color-border);
+      padding-top: var(--space-7);
     }
 
-    .wrap { max-width: 560px; margin: 0 auto; }
+    /* ── OPERATOR PANEL (left) ────────────────────────── */
 
-    .border-line {
-      color: #00FF41;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      opacity: 0.8;
-      user-select: none;
-    }
-
-    h1 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #FFB000;
-      letter-spacing: 0.1em;
-      margin: 0.5rem 0;
-      text-shadow: 0 0 10px rgba(255,176,0,0.4);
-    }
-
-    .divider { border: none; border-top: 1px dashed #2a1f06; margin: 1.5rem 0; }
-
-    .photo-block { margin: 1.5rem 0 0.5rem; }
-
-    .photo-frame {
-      display: inline-block;
-      background: #f5f0e8;
-      padding: 10px 10px 32px 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(0,0,0,0.08);
-      transform: rotate(-1.2deg);
-      position: relative;
-      max-width: 260px;
-    }
-
-    .photo-frame img {
-      display: block;
-      width: 100%;
-      filter: sepia(0.15) contrast(0.95) brightness(0.97);
-    }
-
-    .photo-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.46rem;
-      color: #3a2a10;
-      letter-spacing: 0.06em;
+    .operator-label {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      padding: 0 8px;
-      text-align: center;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
     }
 
-    .ident-block { margin-top: 1.25rem; }
-
-    .label {
-      font-size: 0.52rem;
-      color: #00FF41;
-      opacity: 0.5;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.2rem;
+    .operator-photo {
+      margin-bottom: var(--space-6);
     }
 
-    .ident-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #FFB000;
-      text-shadow: 0 0 12px rgba(255,176,0,0.35);
+    .operator-photo img {
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      filter: grayscale(100%) contrast(1.05);
+      border: 1px solid var(--color-border);
+    }
+
+    .operator-photo__caption {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
       letter-spacing: 0.06em;
-      line-height: 1.1;
+      margin-top: var(--space-2);
+      max-width: 300px;
+      line-height: var(--line-height-normal);
     }
 
-    .ident-email { margin-top: 0.75rem; }
-
-    .ident-email a {
-      font-size: 0.82rem;
-      color: #FFB000;
-      text-decoration: none;
-      transition: text-shadow 0.2s;
+    .operator-name {
+      font-family: var(--font-header);
+      font-size: var(--font-size-h2);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-header);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
     }
-    .ident-email a:hover { text-shadow: 0 0 10px rgba(255,176,0,0.7); }
 
-    .section-label {
-      font-size: 0.58rem;
-      color: #00FF41;
-      opacity: 0.55;
+    .operator-field {
+      margin-bottom: var(--space-3);
+    }
+
+    .operator-field__key {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
       letter-spacing: 0.18em;
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      display: block;
+      margin-bottom: var(--space-1);
+    }
+
+    .operator-field__val {
+      font-family: var(--font-body);
+      font-size: var(--font-size-body);
+      color: var(--color-text-primary);
+    }
+
+    .operator-field__val a {
+      color: var(--color-accent-blue);
+    }
+
+    .operator-field__val a:hover {
+      color: var(--color-accent-red);
+    }
+
+    /* ── FORM PANEL (right) ───────────────────────────── */
+
+    .form-label {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
     }
 
     .terminal-form {
-      border: 1px solid #2a1f06;
-      padding: 1rem;
-      background: #0d0c09;
+      border: 1px solid var(--color-border);
+      padding: var(--space-5);
     }
 
-    .field-row {
+    .form-row {
       display: grid;
-      grid-template-columns: 90px 1fr;
-      align-items: center;
-      margin-bottom: 0.6rem;
-      gap: 0.5rem;
+      grid-template-columns: 80px 1fr;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: var(--space-4);
     }
 
-    .field-prompt {
-      font-size: 0.68rem;
-      color: #00FF41;
-      opacity: 0.5;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
+    .form-row__prompt {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
     }
 
-    .field-input {
+    .form-row__input {
+      font-family: var(--font-body);
+      font-size: var(--font-size-body);
+      color: var(--color-text-primary);
       background: transparent;
       border: none;
-      border-bottom: 1px solid #2a1f06;
-      color: #FFB000;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      padding: 0.15rem 0.25rem;
       outline: none;
       width: 100%;
-      transition: border-color 0.2s;
-    }
-    .field-input:focus { border-bottom-color: #FFB000; }
-    .field-input::placeholder { color: #2a1f06; opacity: 1; }
-
-    .message-area { margin-top: 0.75rem; }
-    .message-area .field-prompt { margin-bottom: 0.35rem; display: block; }
-
-    textarea.field-input {
-      border: 1px solid #2a1f06;
-      display: block;
-      width: 100%;
-      min-height: 80px;
-      resize: vertical;
-      padding: 0.4rem 0.5rem;
-      line-height: 1.6;
-    }
-    textarea.field-input:focus { border-color: #FFB000; }
-
-    .form-footer {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
     }
 
-    .send-btn {
-      background: transparent;
-      border: 1px solid #2a1f06;
-      color: #FFB000;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
+    .form-row__input::placeholder {
+      color: var(--color-border);
+    }
+
+    .form-message {
+      margin-bottom: var(--space-5);
+    }
+
+    .form-message__prompt {
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
       letter-spacing: 0.1em;
-      padding: 0.45rem 1.2rem;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      display: block;
+      margin-bottom: var(--space-3);
     }
-    .send-btn:hover { border-color: #FFB000; background: #1a1200; }
 
-    .success-flash {
-      border: 1px solid #00FF41;
-      background: #0a120a;
-      padding: 0.6rem 0.9rem;
-      font-size: 0.68rem;
-      color: #00FF41;
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
-      opacity: 0.85;
+    .form-message__textarea {
+      font-family: var(--font-body);
+      font-size: var(--font-size-body);
+      color: var(--color-text-primary);
+      background: transparent;
+      border: 1px solid var(--color-border-light);
+      outline: none;
+      width: 100%;
+      min-height: 120px;
+      padding: var(--space-3);
+      resize: vertical;
+      line-height: var(--line-height-normal);
     }
-    .success-flash::before { content: '> '; }
 
-    .back-link {
-      display: inline-block;
-      margin-top: 2.5rem;
-      font-size: 0.72rem;
-      color: #00FF41;
-      text-decoration: none;
-      opacity: 0.6;
-      transition: opacity 0.2s;
+    .form-message__textarea:focus {
+      border-color: var(--color-border);
     }
-    .back-link:hover { opacity: 1; }
 
-    @media (max-width: 500px) {
-      .photo-frame { max-width: 200px; }
-      .ident-name { font-size: 1.2rem; }
+    .form-message__textarea::placeholder {
+      color: var(--color-border);
     }
+
+    .success-msg {
+      display: none;
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border-light);
+      padding: var(--space-4);
+      margin-bottom: var(--space-5);
+      letter-spacing: 0.06em;
+    }
+
+    .success-msg::before {
+      content: '> ';
+      color: var(--color-accent-blue);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+
+    @media (max-width: 700px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+    }
+
   </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="border-line">══════════════════════════════════</div>
-  <h1>CONTACT</h1>
-  <div class="border-line">══════════════════════════════════</div>
+  <!-- ── NAV ──────────────────────────────────────────── -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="site-nav__logo">Jesse.Ventures</a>
+      <ul class="site-nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/thebeast/">The Beast</a></li>
+        <li><a href="/antarctica/">Antarctica</a></li>
+        <li><a href="/photos/">Photos</a></li>
+        <li><a href="/contact/" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <hr class="divider">
+  <!-- ── MAIN ─────────────────────────────────────────── -->
+  <main class="contact-wrap">
+    <div class="container">
 
-  <div style="display:flex; gap:1.75rem; align-items:flex-start; flex-wrap:wrap;">
-    <div class="photo-block">
-      <div class="photo-frame">
-        <img src="how-to-get-there.jpg" alt="Jesse, December 1994">
-        <div class="photo-caption">Beijing &mdash; December 1994 &mdash; figuring out how to get there</div>
+      <h1>Contact.</h1>
+
+      <div class="contact-grid">
+
+        <!-- LEFT: Operator ID -->
+        <div>
+          <p class="operator-label">// Operator on File</p>
+
+          <div class="operator-photo">
+            <img src="/contact/how-to-get-there.jpg" alt="Jesse — Beijing, December 1994">
+            <p class="operator-photo__caption">Beijing &mdash; December 1994 &mdash; figuring out how to get there.</p>
+          </div>
+
+          <h2 class="operator-name">Jesse Lunsford</h2>
+
+          <div class="operator-field">
+            <span class="operator-field__key">// Location</span>
+            <span class="operator-field__val">Austin, Texas</span>
+          </div>
+          <div class="operator-field">
+            <span class="operator-field__key">// Email</span>
+            <span class="operator-field__val">
+              <a href="mailto:jesse.lunsford@gmail.com">jesse.lunsford@gmail.com</a>
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div>
+          <p class="form-label">// Leave a Message</p>
+
+          <div id="success-msg" class="success-msg">
+            MESSAGE LOGGED. THANKS FOR STOPPING BY.
+          </div>
+
+          <form
+            class="terminal-form"
+            name="guestbook"
+            method="POST"
+            data-netlify="true"
+            action="/contact/?sent=1">
+            <input type="hidden" name="form-name" value="guestbook">
+
+            <div class="form-row">
+              <span class="form-row__prompt">Name &gt;</span>
+              <input
+                class="form-row__input"
+                type="text"
+                name="name"
+                maxlength="100"
+                placeholder="required"
+                autocomplete="off"
+                spellcheck="false"
+                required>
+            </div>
+
+            <div class="form-message">
+              <span class="form-message__prompt">Message &gt;</span>
+              <textarea
+                class="form-message__textarea"
+                name="message"
+                maxlength="1000"
+                placeholder="required"
+                spellcheck="false"
+                required></textarea>
+            </div>
+
+            <button class="btn btn--primary" type="submit">[ Send Message ]</button>
+          </form>
+        </div>
+
       </div>
     </div>
+  </main>
 
-    <div class="ident-block">
-      <div class="label">// OPERATOR</div>
-      <div class="ident-name">JESSE</div>
-      <div class="ident-email" style="margin-top:1rem;">
-        <div class="label">// EMAIL</div>
-        jesse.lunsford@gmail.com
-      </div>
+  <!-- ── FOOTER ────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>© Jesse Lunsford · Jesse.Ventures</span>
+      <span style="font-size: var(--font-size-xs); color: var(--color-border); letter-spacing: 0.06em;">30.2672° N, 97.7431° W</span>
     </div>
-  </div>
+  </footer>
 
-  <hr class="divider">
-
-  <!-- Netlify Form — submissions go to your Netlify dashboard and email -->
-  <div class="section-label">// GUESTBOOK &mdash; LEAVE A MESSAGE</div>
-
-  <!-- success message shown after redirect -->
-  <div id="success-msg" class="success-flash" style="display:none;">MESSAGE LOGGED. THANKS FOR STOPPING BY.</div>
-
-  <form class="terminal-form" name="guestbook" method="POST" data-netlify="true" action="/contact/?sent=1">
-    <input type="hidden" name="form-name" value="guestbook">
-    <div class="field-row">
-      <span class="field-prompt">NAME &gt;</span>
-      <input class="field-input" type="text" name="name" maxlength="100"
-             placeholder="required" autocomplete="off" spellcheck="false">
-    </div>
-    <div class="message-area">
-      <span class="field-prompt">MESSAGE &gt;</span>
-      <textarea class="field-input" name="message" maxlength="1000"
-                placeholder="required" spellcheck="false"></textarea>
-    </div>
-    <div class="form-footer">
-      <button class="send-btn" type="submit">[ SIGN GUESTBOOK ]</button>
-    </div>
-  </form>
-
-  <a class="back-link" href="/">[&larr; jesse.ventures]</a>
-
-</div>
-
-<script>
-  // Show success message if redirected back with ?sent=1
-  if (window.location.search.includes('sent=1')) {
-    document.getElementById('success-msg').style.display = 'block';
-  }
-</script>
+  <script>
+    if (window.location.search.includes('sent=1')) {
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  </script>
+  <script src="/js/nav.js"></script>
 </body>
 </html>
